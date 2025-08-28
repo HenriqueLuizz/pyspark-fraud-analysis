@@ -217,10 +217,3 @@ flake8 src/ tests/
 3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
 4. Push para a branch (`git push origin feature/AmazingFeature`)
 5. Abra um Pull Request
-
-## Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
-
-## Contato
-Link do Projeto: [https://github.com/seu-usuario/pyspark-fraud-analysis](https://github.com/seu-usuario/pyspark-fraud-analysis)
