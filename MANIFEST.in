@@ -1,0 +1,29 @@
+# Incluir arquivos de documentação
+include README.md
+include LICENSE
+include requirements.txt
+include pyproject.toml
+
+# Incluir arquivos de configuração
+include *.yml
+include *.yaml
+include *.ini
+include *.cfg
+
+# Incluir código fonte
+recursive-include src *.py
+
+# Incluir testes
+recursive-include tests *.py
+
+# Incluir dados de exemplo (se houver)
+recursive-include data *.json
+recursive-include data *.csv
+recursive-include data *.parquet
+
+# Excluir arquivos desnecessários
+global-exclude *.pyc
+global-exclude *.pyo
+global-exclude *~
+global-exclude .DS_Store
+global-exclude __pycache__

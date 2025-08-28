@@ -1,0 +1,12 @@
+# Dependências principais
+pyspark>=3.4.0
+
+# Dependências de teste
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Dependências de desenvolvimento (opcionais)
+black>=22.0.0
+flake8>=5.0.0
+mypy>=1.0.0
+pytest-mock>=3.8.0
