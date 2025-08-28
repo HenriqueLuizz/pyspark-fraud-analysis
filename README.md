@@ -188,7 +188,4 @@ flake8 src/ tests/
 Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para detalhes.
 
 ## Contato
-
-Henrique Luiz - henrique@example.com
-
 Link do Projeto: [https://github.com/seu-usuario/pyspark-fraud-analysis](https://github.com/seu-usuario/pyspark-fraud-analysis)
