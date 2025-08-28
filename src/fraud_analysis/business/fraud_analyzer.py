@@ -92,10 +92,14 @@ class FraudAnalyzer:
         try:
             self.logger.info("Iniciando join entre pagamentos e pedidos")
             
+            # Usar alias para evitar ambiguidade nas colunas
+            pagamentos_alias = pagamentos_df.alias("pag")
+            pedidos_alias = pedidos_df.alias("ped")
+            
             # Join usando ID_PEDIDO como chave
-            joined_df = pagamentos_df.join(
-                pedidos_df,
-                pagamentos_df.id_pedido == pedidos_df.ID_PEDIDO,
+            joined_df = pagamentos_alias.join(
+                pedidos_alias,
+                pagamentos_alias.id_pedido == pedidos_alias.ID_PEDIDO,
                 "inner"
             )
             
@@ -155,12 +159,13 @@ class FraudAnalyzer:
             self.logger.info("Criando relatório final de fraude")
             
             # Seleciona e renomeia colunas conforme especificado
+            # Usar alias específicos para evitar ambiguidade
             report_df = joined_df.select(
-                col("id_pedido"),
-                col("UF").alias("uf"),
-                col("forma_pagamento"),
-                col("valor_total_pedido"),
-                col("DATA_CRIACAO").alias("data_pedido")
+                col("pag.id_pedido"),
+                col("ped.UF").alias("uf"),
+                col("pag.forma_pagamento"),
+                col("ped.valor_total_pedido"),
+                col("ped.DATA_CRIACAO").alias("data_pedido")
             )
             
             count = report_df.count()
