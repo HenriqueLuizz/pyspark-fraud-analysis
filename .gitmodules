@@ -1,0 +1,6 @@
+[submodule "data/dataset-json-pagamentos"]
+	path = data/dataset-json-pagamentos
+	url = https://github.com/infobarbosa/dataset-json-pagamentos.git
+[submodule "data/datasets-csv-pedidos"]
+	path = data/datasets-csv-pedidos
+	url = https://github.com/infobarbosa/datasets-csv-pedidos.git
