@@ -36,6 +36,41 @@ src/fraud_analysis/
 └── pipeline/       # Orquestração do pipeline
 ```
 
+Grafo do fluxo da pipeline de análise de fraudeo
+```mermaid
+graph TD
+    A["main.py<br/>(Aggregation Root)"] --> B["AppConfig<br/>(Configurações)"]
+    A --> C["SparkSessionManager<br/>(Sessão Spark)"]
+    A --> D["DataReader<br/>(Leitura de Dados)"]
+    A --> E["DataWriter<br/>(Escrita de Dados)"]
+    A --> F["FraudAnalyzer<br/>(Lógica de Negócios)"]
+    A --> G["FraudAnalysisPipeline<br/>(Orquestração)"]
+    
+    B --> G
+    C --> D
+    C --> G
+    D --> G
+    E --> G
+    F --> G
+    
+    H["DataSchemas<br/>(Schemas Explícitos)"] --> D
+    H --> F
+    
+    I["Dataset Pagamentos<br/>(JSON)"] --> D
+    J["Dataset Pedidos<br/>(CSV)"] --> D
+    
+    G --> K["Relatório de Fraude<br/>(Parquet)"]
+    
+    L["Filtros Aplicados:<br/>• status = false<br/>• fraude = false<br/>• ano = 2025"] --> F
+    
+    M["Ordenação:<br/>• UF<br/>• Forma Pagamento<br/>• Data Pedido"] --> F
+    
+    style A fill:#e1f5fe
+    style G fill:#f3e5f5
+    style F fill:#e8f5e8
+    style K fill:#fff3e0
+```
+
 ### Componentes Principais
 
 - **AppConfig**: Configurações centralizadas da aplicação
